@@ -1,5 +1,5 @@
 {
-    "name": "monashee/module-recaptcha",
+    "name": "reach-digital/module-recaptcha",
     "description": "Magento 2 Recaptcha for Contact Page, Customer Create, and Forgot Password",
     "keywords": [
       "magento 2",
@@ -14,7 +14,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": "7.0.2|7.0.4|~7.0.6"
+      "php": "~7.1.0"
     },
     "require-dev": {
       "phpunit/phpunit": "4.1.0"

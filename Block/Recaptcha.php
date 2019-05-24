@@ -23,17 +23,26 @@ class Recaptcha extends Template
     protected $dataHelper;
 
     /**
+     * @var \Magento\Framework\Locale\ResolverInterface
+     */
+    private $localeResolver;
+
+    /**
      * Recaptcha constructor.
-     * @param Template\Context $context
-     * @param Data $dataHelper
-     * @param array $data
+     *
+     * @param Template\Context                            $context
+     * @param Data                                        $dataHelper
+     * @param \Magento\Framework\Locale\ResolverInterface $localeResolver
+     * @param array                                       $data
      */
     public function __construct(
         Template\Context $context,
         Data $dataHelper,
+        \Magento\Framework\Locale\ResolverInterface $localeResolver,
         array $data = []
     ) {
         $this->dataHelper = $dataHelper;
+        $this->localeResolver = $localeResolver;
         parent::__construct($context, $data);
     }
 
@@ -51,5 +60,13 @@ class Recaptcha extends Template
     public function getSiteKey()
     {
         return $this->dataHelper->getSiteKey();
+    }
+
+    /**
+     * @return string
+     */
+    public function getLanguageCode()
+    {
+        return current(explode("_", $this->localeResolver->getLocale()));
     }
 }
